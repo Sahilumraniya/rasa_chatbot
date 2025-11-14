@@ -1,0 +1,96 @@
+{
+    "faqs": [
+        {
+            "question": "Who is CEO",
+            "answer": "Guru is the CEO of Smartters Software, leading innovation and company growth."
+        },
+        {
+            "question": "Who is CTO",
+            "answer": "Ayushi is the Chief Technology Officer who manages all engineering and AI projects."
+        },
+        {
+            "question": "Who is Sahil",
+            "answer": "Sahil is a MERN stack developer working on full-stack web applications and integrations."
+        },
+        {
+            "question": "Who is Vanshika",
+            "answer": "Vanshika is a senior software developer managing frontend architecture and mentoring junior developers."
+        },
+        {
+            "question": "Who leads Smartters",
+            "answer": "Smartters Software is led by Guru (CEO) and Ayushi (CTO)."
+        },
+        {
+            "question": "What is Smartters",
+            "answer": "Smartters Software is an Indian tech company specializing in AI automation, MERN development, and enterprise software."
+        },
+        {
+            "question": "What services Smartters provide",
+            "answer": "Smartters offers web and mobile development, DevOps, AI automation, and software consulting."
+        },
+        {
+            "question": "Where is Smartters located",
+            "answer": "Smartters Software is headquartered in India and serves clients globally."
+        }
+    ],
+    "projects": [
+        {
+            "name": "Hpluz",
+            "status": "Completed",
+            "deadline": "Feb 2025",
+            "stack": [
+                "React",
+                "Node.js",
+                "MongoDB",
+                "Tailwind CSS"
+            ],
+            "description": "A healthcare appointment and lab report management platform with secure authentication."
+        },
+        {
+            "name": "Binimise",
+            "status": "Ongoing",
+            "deadline": "Dec 2025",
+            "stack": [
+                "React",
+                "Express",
+                "MySQL",
+                "Mapbox API"
+            ],
+            "description": "A municipal management system for waste tracking, vendor reporting, and daily task updates."
+        },
+        {
+            "name": "GetHiredAT",
+            "status": "Completed",
+            "deadline": "Aug 2024",
+            "stack": [
+                "Next.js",
+                "Node.js",
+                "PostgreSQL",
+                "OpenAI API"
+            ],
+            "description": "A smart job application platform that uses AI to parse resumes and auto-fill applications."
+        },
+        {
+            "name": "SmartCRM",
+            "status": "Completed",
+            "deadline": "Jan 2024",
+            "stack": [
+                "Angular",
+                "Spring Boot",
+                "MongoDB"
+            ],
+            "description": "An internal CRM for tracking client interactions, invoices, and project health metrics."
+        },
+        {
+            "name": "EduPort",
+            "status": "Ongoing",
+            "deadline": "Mar 2026",
+            "stack": [
+                "Flutter",
+                "Firebase",
+                "Python"
+            ],
+            "description": "A mobile-first education portal connecting tutors and students for online learning."
+        }
+    ]
+}

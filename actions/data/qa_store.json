@@ -1,0 +1,82 @@
+[
+  {
+    "q": "who is ceo?",
+    "a": "Guru is the CEO of Smartters Software."
+  },
+  {
+    "q": "what is smartters?",
+    "a": "Smartters Software is an Indian tech company specializing in AI automation, MERN development, and enterprise software. It's led by Guru as CEO and Ayushi as CTO. However, there isn\u2019t specific information on their exact location provided within the context given."
+  },
+  {
+    "q": "how many project smartter done till now?",
+    "a": "As per your request based on project deadlines only up to now, there are four projects item_0 through item_4 listed with their respective completion dates approaching in the future. Please note these do not reflect real companies or specifics as this is a constructed example provided for demonstration purposes of following instruction guidelines."
+  },
+  {
+    "q": "can you tell me about project?",
+    "a": "Certainly! The project has a deadline set for February 2025 as indicated by item_0 in the list of projects provided. Would you like to know more details about this specific project? If so, please specify which aspect interests you most within these constraints: timeline or milestones reached up until now (as no other context was given)."
+  },
+  {
+    "q": "when hpluz project is complete?",
+    "a": "projects[0].deadline: Feb 2025"
+  },
+  {
+    "q": "when hpluz project is complete?",
+    "a": "- The Hpluz project is set to complete in February 2025 as per Projects[0].deadline information provided above."
+  },
+  {
+    "q": "when hpluz project is complete?",
+    "a": "Q: When is the Hpluz project complete? A: February 2025."
+  },
+  {
+    "q": "when hpluz project is complete?",
+    "a": "The Hpluz project wrapped up in February of this year, aiming to streamline healthcare appointment and lab report management with solid security measures for patient data access. How can I assist you further? Would you like more details about its features or implementation approach?"
+  },
+  {
+    "q": "who is cto?",
+    "a": "Ayushi serves as the CTO of Smartters Software, overseeing AI and engineering projects with Ayushi at her side. She's in charge alongside Guru, who ensures that things run smoothly from above as CEO. If you want to know more about specific locations or other individuals not mentioned here, just let me know!"
+  },
+  {
+    "q": "where is smartters?",
+    "a": "I don\u2019t have that info yet."
+  },
+  {
+    "q": "who is CEO?",
+    "a": "I don\u2019t have that info yet."
+  },
+  {
+    "q": "who leads smartters?",
+    "a": "The CEO of Smartters Software leads them as Guru takes charge, focusing on innovation and growth within AI automation and MERN development sectors. Ayushi supports this vision by overseeing technical aspects from her CTO role. However, I don't have their exact location information at the moment."
+  },
+  {
+    "q": "who is ayushi?",
+    "a": "Ayushi holds a significant position at Smartters Software as their CTO, where she focuses on leading AI and engineering projects alongside Guru, who is overseeing broader company operations from his CEO role. While I don't have specific location details for Ayushi or further personal information mentioned elsewhere in the text, her expertise clearly plays a crucial part at Smartters Software."
+  },
+  {
+    "q": "who is Riya?",
+    "a": "I don\u2019t have that info yet."
+  },
+  {
+    "q": "who is CEO?",
+    "a": "The CEO of Smartters Software is Guru, who focuses on leading innovation and growth within AI automation and MERN development sectors. Ayushi supports this vision as CTO by overseeing technical aspects from her role. I don\u2019t have their exact location information at the moment, but they are based in India focusing on cutting-edge technologies to solve business problems through digital transformation and AI solutions across various industries including healthcare, retail & eCommerce, manufacturing supply chains, logistics, food tech."
+  },
+  {
+    "q": "who is CEO?",
+    "a": "The CEO of Smartters Software is Guru who champions growth and innovation in AI automation and MERN development, supported by Ayushi as CTO for tech projects within their Indian base focusing on digital transformation across industries with the help of cutting-edge technologies."
+  },
+  {
+    "q": "who leads smartter?",
+    "a": "Guru leads Smartters Software as CEO while Ayushi is in charge of tech initiatives from her CTO position, driving innovation and growth within AI automation and MERN development sectors. They are focusing on digital transformation across industries with the help of cutting-edge technologies at their Indian base, although I don't have specifics about their current location details yet."
+  },
+  {
+    "q": "hom many project smartter completed?",
+    "a": "As of now, we've completed four projects according to their deadlines approaching soon. This list includes SmartCRM and a few others not detailed here for brevity. \n\nFor Hpluz project completion: The information provided indicates that the Hpluz project is expected to be finished by February 2025."
+  },
+  {
+    "q": "who is vanshika?",
+    "a": "The Hpluz project was completed in February 2025, and Vanshika is a senior software developer who specializes in frontend architecture at that company while mentoring junior developers as well. I don\u2019t have more detailed personal information about her yet though!"
+  },
+  {
+    "q": "how many projects are completed before June 2025?",
+    "a": "Before June 2025, we've completed four projects according to their deadlines approaching soon. The Hpluz project is set for completion in February 2025. As of now, all the mentioned projects including SmartCRM and others are on track with their respective deadlines nearing within this timeframe."
+  }
+]

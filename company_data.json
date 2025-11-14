@@ -1,0 +1,68 @@
+{
+    "company_name": "Smartters Software",
+    "about": "Smartters is a technology company specializing in AI-driven software and enterprise solutions.",
+    "team": [
+        {
+            "name": "Guru",
+            "role": "CEO"
+        },
+        {
+            "name": "Ayushi",
+            "role": "CTO"
+        },
+        {
+            "name": "Sahil",
+            "role": "MERN Developer"
+        }
+    ],
+    "projects": [
+        {
+            "name": "GetHiredAT",
+            "description": "An AI-powered job platform that parses resumes and auto-applies for jobs.",
+            "tech": [
+                "Next.js",
+                "Node.js",
+                "PostgreSQL",
+                "OpenAI API"
+            ],
+            "status": "Active",
+            "deadline": "2025-12-31"
+        },
+        {
+            "name": "EduPort",
+            "description": "A digital education portal for universities with smart scheduling.",
+            "tech": [
+                "React",
+                "Express",
+                "MongoDB"
+            ],
+            "status": "Completed",
+            "deadline": "2024-10-15"
+        },
+        {
+            "name": "Binimise",
+            "description": "A waste management platform used by municipal corporations.",
+            "tech": [
+                "React",
+                "FeathersJS",
+                "PostgreSQL"
+            ],
+            "status": "Active",
+            "deadline": "2026-02-28"
+        }
+    ],
+    "faqs": [
+        {
+            "question": "Who is the CEO of Smartters?",
+            "answer": "Guru is the CEO of Smartters Software."
+        },
+        {
+            "question": "What does Smartters do?",
+            "answer": "Smartters builds scalable software and AI systems for enterprises."
+        },
+        {
+            "question": "How many projects are active?",
+            "answer": "Smartters currently has 2 active projects."
+        }
+    ]
+}

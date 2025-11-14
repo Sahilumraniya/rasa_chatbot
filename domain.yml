@@ -1,0 +1,53 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - introduce
+  - ask_info
+  - ask_project
+  - unknown
+
+entities:
+  - user_name
+  - project_name
+  - person
+
+slots:
+  user_name:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+
+  project_name:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+
+responses:
+  utter_greet:
+    - text: "👋 Hey {user_name}! How are you today?"
+    - text: "Hello {user_name}! What can I help with?"
+
+  utter_greet_no_name:
+    - text: "👋 Hello! What's your name?"
+
+  utter_default:
+    - text: "Hmm… I don’t have that yet. I can try to find using my knowledge base."
+
+  utter_ask_person:
+    - text: "Who are you asking about?"
+
+  utter_goodbye_with_name:
+    - text: "Goodbye {user_name}! 👋"
+
+  utter_goodbye_no_name:
+    - text: "Goodbye friend! 👋"
+
+actions:
+  - action_remember_name
+  - action_vector_reasoner
+  - action_llm_fallback
+  - action_log_and_learn
