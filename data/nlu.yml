@@ -7,37 +7,10 @@ nlu:
     - hello
     - hey
     - good morning
-    - good afternoon
     - yo
-
-- intent: introduce
-  examples: |
-    - my name is [Name](user_name)
-    - I am [Name](user_name)
-    - I'm [Name](user_name)
-    - you can call me [Riya](user_name)
-    - people call me [John](user_name)
-    - this is [Alice](user_name)
-
-- intent: ask_info
-  examples: |
-    - who is the CEO?
-    - who is Guru?
-    - tell me about Smartters
-    - what does Smartters do?
-    - who is the CTO?
-    - who runs Smartters Software?
-    - give me company details
-    - describe Smartters Software
-
-- intent: ask_project
-  examples: |
-    - tell me about GetHiredAT
-    - what is Binimise?
-    - project deadline for EduPort
-    - status of Binimise
-    - which tech stack is used in Binimise?
-    - who is handling GetHiredAT project?
+    - hi there
+    - heya
+    - hello again
 
 - intent: goodbye
   examples: |
@@ -46,10 +19,17 @@ nlu:
     - see you
     - take care
     - later
+    - bye bye
 
-- intent: unknown
+# We add this so the NLU knows what a "question" looks like
+# This helps it know what is *not* a greeting.
+- intent: nlu_fallback
   examples: |
-    - tell me a joke
-    - what’s your favorite color
-    - do you like pizza?
-    - what is the meaning of life?
+    - what is smartters?
+    - who is the ceo?
+    - tell me about the project
+    - i want to know about subsidyx
+    - what is proptech?
+
+# The 'inform_name', 'introduce_me', and 'lookup' are GONE.
+# The new form logic makes them obsolete.

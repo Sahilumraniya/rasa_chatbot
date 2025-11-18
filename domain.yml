@@ -3,42 +3,46 @@ version: "3.1"
 intents:
   - greet
   - goodbye
-  - introduce
-  - ask_info
-  - ask_project
-  - unknown
+  - nlu_fallback
+  # The 'inform' intent is GONE. This is correct.
 
 entities:
-  - user_name
-  - project_name
-  - person
+  []
 
 slots:
   user_name:
     type: text
     influence_conversation: true
     mappings:
+      # --- THIS IS THE "POWERFUL" FIX ---
       - type: from_text
+        conditions:
+          # This mapping is ONLY active when the form is running
+          - active_loop: name_form
+        # THIS IS THE NEW LINE:
+        # We tell the mapping to IGNORE the 'greet'
+        # intent. This stops it from grabbing "hello"
+        # as the name.
+        not_intent:
+          - greet
+          - goodbye
 
-  project_name:
-    type: text
-    influence_conversation: false
-    mappings:
-      - type: from_text
+forms:
+  # This form's only job is to get the user's name
+  name_form:
+    required_slots:
+      - user_name
 
 responses:
-  utter_greet:
-    - text: "👋 Hey {user_name}! How are you today?"
-    - text: "Hello {user_name}! What can I help with?"
+  utter_greet_with_name:
+    - text: "👋 Hey {user_name}! How can I help you today?"
 
   utter_greet_no_name:
-    - text: "👋 Hello! What's your name?"
+    - text: "👋 Hello!"
 
-  utter_default:
-    - text: "Hmm… I don’t have that yet. I can try to find using my knowledge base."
-
-  utter_ask_person:
-    - text: "Who are you asking about?"
+  utter_ask_user_name:
+    # This is the form's question
+    - text: "What's your name?"
 
   utter_goodbye_with_name:
     - text: "Goodbye {user_name}! 👋"
@@ -46,8 +50,10 @@ responses:
   utter_goodbye_no_name:
     - text: "Goodbye friend! 👋"
 
+  utter_ask_name_again:
+    - text: "I'm sorry, I didn't catch that. What's your name?"
+
 actions:
-  - action_remember_name
+  # From your actions.py file
+  - validate_name_form
   - action_vector_reasoner
-  - action_llm_fallback
-  - action_log_and_learn

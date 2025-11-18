@@ -10,3 +10,4 @@ build/
 develop-eggs/
 dist/
 downloads/
+models/
