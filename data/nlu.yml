@@ -11,6 +11,67 @@ nlu:
     - hi there
     - heya
     - hello again
+    - greetings
+    - good evening
+    - good night
+    - hey there
+    - hiya
+    - hey yo
+    - howdy
+    - sup
+    - heyo
+    - hola
+    - heya
+    - hiya!
+    - hey!
+    - hello!
+    - greetings!
+    - good day
+    - hey there!
+    - hi there!
+    - hello there!
+    - greetings there!
+    - good to see you
+    - nice to see you
+    - great to see you
+    - wonderful to see you
+    - good to meet you
+    - nice to meet you
+    - great to meet you
+    - wonderful to meet you
+    - pleased to meet you
+    - delighted to meet you
+    - howdy partner
+    - hey partner
+    - hi partner
+    - hello partner
+    - greetings partner
+    - good day partner
+    - hey buddy
+    - hi buddy
+    - hello buddy
+    - greetings buddy
+    - good day buddy
+    - hey friend
+    - hi friend
+    - hello friend
+    - greetings friend
+    - good day friend
+    - hey mate
+    - hi mate
+    - hello mate
+    - greetings mate
+    - good day mate
+    - hey pal
+    - hi pal
+    - hello pal
+    - greetings pal
+    - good day pal
+    - hey dude
+    - hi dude
+    - hello dude
+    - greetings dude
+    - good day dude
 
 - intent: goodbye
   examples: |
@@ -20,16 +81,362 @@ nlu:
     - take care
     - later
     - bye bye
+    - see you later
+    - catch you later
+    - talk to you later
+    - farewell
+    - see ya
+    - cya
+    - peace out
+    - I'm off
+    - I'm out
+    - gotta go
+    - see you soon
+    - until next time
+    - have a good one
+    - have a nice day
+    - have a great day
+    - have a good day!
+    - have a nice day!
+    - have a great day!
+    - bye!
+    - goodbye!
+    - see you!
+    - take care!
+    - later!
+    - bye bye!
+    - see you later!
+    - catch you later!
+    - talk to you later!
+    - farewell!
+    - see ya!
+    - cya!
+    - peace out!
+    - I'm off!
+    - I'm out!
+    - gotta go!
+    - see you soon!
+    - until next time!
+    - have a good one!
+    - have a nice day!
+    - have a great day!
 
 # We add this so the NLU knows what a "question" looks like
 # This helps it know what is *not* a greeting.
 - intent: nlu_fallback
   examples: |
-    - what is smartters?
-    - who is the ceo?
-    - tell me about the project
-    - i want to know about subsidyx
-    - what is proptech?
+    - what is [Rasa](product)?
+    - tell me about [Rasa](product)
+    - give me information on [Rasa](product)
+    - I want to know about [Rasa](product)
+    - can you explain [Rasa](product) to me?
+    - what do you know about [Rasa](product)?
+    - provide details on [Rasa](product)
+    - I'd like to learn about [Rasa](product)
+    - help me understand [Rasa](product)
+    - could you tell me about [Rasa](product)?
+    - I'd like some information on [Rasa](product)
+    - what can you tell me about [Rasa](product)?
+    - give me some info on [Rasa](product)
+    - explain [Rasa](product) to me
+    - what are the features of [Rasa](product)?
+    - how does [Rasa](product) work?
+    - what is the purpose of [Rasa](product)?
+    - why should I use [Rasa](product)?
+    - what makes [Rasa](product) special?
+    - tell me more about [Rasa](product)
+    - I'd like to find out about [Rasa](product)
+    - can you provide information on [Rasa](product)?
+    - what do I need to know about [Rasa](product)?
+    - give me an overview of [Rasa](product)
+    - what is the main function of [Rasa](product)?
+    - how can [Rasa](product) help me?
+    - what are the benefits of using [Rasa](product)?
+    - what is the use case for [Rasa](product)?
+    - what problems does [Rasa](product) solve?
+    - how is [Rasa](product) different from others?
+    - what should I know about [Rasa](product)?
+    - tell me everything about [Rasa](product)
+    - give me a summary of [Rasa](product)
+    - what is the background of [Rasa](product)?
+    - what is the history of [Rasa](product)?
+    - what are the specifications of [Rasa](product)?
+    - what is the technology behind [Rasa](product)?
+    - how was [Rasa](product) developed?
+    - what is the mission of [Rasa](product)?
+    - what is the vision of [Rasa](product)?
+    - what are the goals of [Rasa](product)?
+    - what is the target audience for [Rasa](product)?
+    - who is [Rasa](product) for?
+    - what industries use [Rasa](product)?
+    - what sectors benefit from [Rasa](product)?
+    - what applications does [Rasa](product) have?
+    - how is [Rasa](product) applied in real life?
+    - what are some examples of [Rasa](product) in use?
+    - where can I see [Rasa](product) being used?
+    - how popular is [Rasa](product)?
+    - what is the market for [Rasa](product)?
+    - what do experts say about [Rasa](product)?
+    - what are the reviews of [Rasa](product)?
+    - what feedback have users given about [Rasa](product)?
+    - how reliable is [Rasa](product)?
+    - how effective is [Rasa](product)?
+    - what is the performance of [Rasa](product)?
+    - what is the efficiency of [Rasa](product)?
+    - what is the scalability of [Rasa](product)?
+    - what is the flexibility of [Rasa](product)?
+    - what is the usability of [Rasa](product)?
+    - what is the accessibility of [Rasa](product)?
+    - what is the compatibility of [Rasa](product)?
+    - what is the integration process for [Rasa](product)?
+    - how do I get started with [Rasa](product)?
+    - where can I find more info on [Rasa](product)?
+    - who developed [Rasa](product)?
+    - when was [Rasa](product) created?
+    - how long has [Rasa](product) been around?
+    - what is the future of [Rasa](product)?
+    - what upcoming features does [Rasa](product) have?
+    - what updates are planned for [Rasa](product)?
+    - what improvements are being made to [Rasa](product)?
+    - what is the roadmap for [Rasa](product)?
+    - how can I stay informed about [Rasa](product)?
+    - where can I follow news about [Rasa](product)?
+    - what social media channels does [Rasa](product) use?
+    - where can I join the [Rasa](product) community?
+    - how can I contribute to [Rasa](product)?
+    - what resources are available for [Rasa](product)?
+    - where can I find documentation for [Rasa](product)?
+    - are there tutorials for [Rasa](product)?
+    - are there guides for [Rasa](product)?
+    - where can I get support for [Rasa](product)?
+    - how can I contact [Rasa](product) support?
+    - what is the helpdesk for [Rasa](product)?
+    - where can I report issues with [Rasa](product)?
+    - how can I give feedback on [Rasa](product)?
+    - where can I leave a review for [Rasa](product)?
+    - what is the FAQ for [Rasa](product)?
+    - where can I find answers about [Rasa](product)?
+    - how can I learn more about [Rasa](product)?
+    - what training is available for [Rasa](product)?
+    - are there webinars on [Rasa](product)?
+    - are there workshops on [Rasa](product)?
+    - are there courses on [Rasa](product)?
+    - where can I sign up for [Rasa](product) events?
+    - how can I stay updated on [Rasa](product)?
+    - where can I subscribe to [Rasa](product) newsletters?
+    - how can I follow [Rasa](product) blogs?
+    - where can I read articles about [Rasa](product)?
+    - what podcasts discuss [Rasa](product)?
+    - where can I watch videos about [Rasa](product)?
+    - where can I see demos of [Rasa](product)?
+    - how can I try out [Rasa](product)?
+    - where can I download [Rasa](product)?
+    - where can I purchase [Rasa](product)?
+    - how much does [Rasa](product) cost?
+    - what is the pricing for [Rasa](product)?
+    - are there discounts for [Rasa](product)?
+    - are there promotions for [Rasa](product)?
+    - what is the licensing for [Rasa](product)?
+    - what are the terms of service for [Rasa](product)?
+    - what is the privacy policy for [Rasa](product)?
+    - what is the security of [Rasa](product)?
+    - how is my data handled by [Rasa](product)?
+    - is [Rasa](product) GDPR compliant?
+    - is [Rasa](product) CCPA compliant?
+    - what regulations does [Rasa](product) follow?
+    - how does [Rasa](product) ensure compliance?
+    - what certifications does [Rasa](product) have?
+    - what awards has [Rasa](product) won?
+    - what recognitions has [Rasa](product) received?
+    - what partnerships does [Rasa](product) have?
+    - who are the clients of [Rasa](product)?
+    - what case studies exist for [Rasa](product)?
+    - what success stories are there for [Rasa](product)?
+    - how has [Rasa](product) helped others?
+    - what impact has [Rasa](product) made?
+    - what difference does [Rasa](product) make?
+    - why choose [Rasa](product)?
+    - what sets [Rasa](product) apart?
+    - what makes [Rasa](product) unique?
+    - what are the advantages of [Rasa](product)?
+    - what are the strengths of [Rasa](product)?
+    - what are the highlights of [Rasa](product)?
+    - what are the key features of [Rasa](product)?
+    - what are the main benefits of [Rasa](product)?
+    - what is special about [Rasa](product)?
+    - why is [Rasa](product) better than others?
+    - what makes [Rasa](product) stand out?
+    - how does [Rasa](product) excel?
+    - what is the excellence of [Rasa](product)?
+    - what is the superiority of [Rasa](product)?
+    - what is the distinction of [Rasa](product)?
+    - what is the prominence of [Rasa](product)?
+    - what is the prestige of [Rasa](product)?
+    - what is the reputation of [Rasa](product)?
+    - what is the credibility of [Rasa](product)?
+    - what is the reliability of [Rasa](product)?
+    - what is the trustworthiness of [Rasa](product)?
+    - what is the authenticity of [Rasa](product)?
+    - what is the integrity of [Rasa](product)?
+    - what is the validity of [Rasa](product)?
+    - what is the accuracy of [Rasa](product)?
+    - what is the quality of [Rasa](product)?
+    - what is the standard of [Rasa](product)?
+    - what is the caliber of [Rasa](product)?
+    - what is the grade of [Rasa](product)?
+    - what is the level of [Rasa](product)?
+    - what is the rank of [Rasa](product)?
+    - what is the status of [Rasa](product)?
+    - what is the standing of [Rasa](product)?
+    - what is the position of [Rasa](product)?
+    - what is the condition of [Rasa](product)?
+    - what is the state of [Rasa](product)?
+    - what is the situation of [Rasa](product)? 
+    - what is the circumstance of [Rasa](product)?
+    - what is the context of [Rasa](product)?
+    - what is the background of [Rasa](product)?
+    - what is the environment of [Rasa](product)?
+    - what is the setting of [Rasa](product)?
+    - what is the framework of [Rasa](product)?
+    - what is the structure of [Rasa](product)?
+    - what is the architecture of [Rasa](product)?
+    - what is the design of [Rasa](product)?
+    - what is the layout of [Rasa](product)?
+    - what is the configuration of [Rasa](product)?
+    - what is the arrangement of [Rasa](product)?
+    - what is the organization of [Rasa](product)?
+    - what is the system of [Rasa](product)?
+    - what is the mechanism of [Rasa](product)?
+    - what is the process of [Rasa](product)?
+    - what is the operation of [Rasa](product)?
+    - what is the function of [Rasa](product)?
+    - what is the role of [Rasa](product)?
+    - what is the purpose of [Rasa](product)?
+    - what is the objective of [Rasa](product)?
+    - what is the goal of [Rasa](product)?
+    - what is the aim of [Rasa](product)?
+    - what is the target of [Rasa](product)?
+    - what is the intention of [Rasa](product)?
+    - what is the plan of [Rasa](product)?
+    - what is the strategy of [Rasa](product)?
+    - what is the approach of [Rasa](product)?
+    - what is the method of [Rasa](product)?
+    - what is the technique of [Rasa](product)?
+    - what is the tactic of [Rasa](product)?
+    - what is the procedure of [Rasa](product)?
+    - what is the protocol of [Rasa](product)?
+    - what is the guideline of [Rasa](product)?
+    - what is the rule of [Rasa](product)?
+    - what is the regulation of [Rasa](product)?
+    - what is the policy of [Rasa](product)?
+    - what is the standard of [Rasa](product)?
+    - what is the norm of [Rasa](product)?
+    - what is the custom of [Rasa](product)?
+    - what is the practice of [Rasa](product)?
+    - what is the tradition of [Rasa](product)?
+    - what is the culture of [Rasa](product)?
+    - what is the ethos of [Rasa](product)?
+    - what is the spirit of [Rasa](product)?
+    - what is the vibe of [Rasa](product)?
+    - what is the feel of [Rasa](product)?
+    - what is the atmosphere of [Rasa](product)?
+    - what is the mood of [Rasa](product)?
+    - what is the tone of [Rasa](product)?
+    - what is the style of [Rasa](product)?
+    - what is the character of [Rasa](product)?
+    - what is the personality of [Rasa](product)?
+    - what is the identity of [Rasa](product)?
+    - what is the brand of [Rasa](product)?
+    - what is the image of [Rasa](product)?
+    - what is the reputation of [Rasa](product)?
+    - what is the perception of [Rasa](product)?
+    - what is the recognition of [Rasa](product)?
+    - what is the awareness of [Rasa](product)?
+    - what is the knowledge of [Rasa](product)?
+    - what is the understanding of [Rasa](product)?
+    - what is the insight of [Rasa](product)?
+    - what is the wisdom of [Rasa](product)?
+    - what is the intelligence of [Rasa](product)?
+    - what is the information about [Rasa](product)?
+    - what is the data on [Rasa](product)?
+    - what is the facts about [Rasa](product)?
+    - what is the details about [Rasa](product)?
+    - what is the specifics about [Rasa](product)?
+    - what is the particulars about [Rasa](product)?
+    - what is the overview of [Rasa](product)?
+    - what is the summary of [Rasa](product)?
+    - what is the synopsis of [Rasa](product)?
+    - what is the outline of [Rasa](product)?
+    - what is the review of [Rasa](product)?
+    - what is the analysis of [Rasa](product)?
+    - what is the evaluation of [Rasa](product)?
+    - what is the assessment of [Rasa](product)?
+    - what is the appraisal of [Rasa](product)?
+    - what is the critique of [Rasa](product)?
+    - what is the commentary on [Rasa](product)?
+    - what is the discussion about [Rasa](product)?
+    - what is the debate on [Rasa](product)?
+    - what is the argument for [Rasa](product)?
+    - what is the case for [Rasa](product)?
+    - what is the justification for [Rasa](product)?
+    - what is the rationale for [Rasa](product)?
+    - what is the reasoning behind [Rasa](product)?
+    - what is the explanation of [Rasa](product)?
+    - what is the description of [Rasa](product)?
+    - what is the depiction of [Rasa](product)?
+    - what is the portrayal of [Rasa](product)?
+    - what is the representation of [Rasa](product)?
+    - what is the illustration of [Rasa](product)?
+    - what is the example of [Rasa](product)?
+    - what is the case study of [Rasa](product)?
+    - what is the scenario of [Rasa](product)?
+    - what is the situation of [Rasa](product)?
+    - what is the context of [Rasa](product)?
+    - what is the background of [Rasa](product)?
+    - what is the history of [Rasa](product)?
+    - what is the development of [Rasa](product)?
+    - what is the evolution of [Rasa](product)?
+    - what is the progress of [Rasa](product)?
+    - what is the advancement of [Rasa](product)?
+    - what is the growth of [Rasa](product)?
+    - what is the expansion of [Rasa](product)?
+    - what is the improvement of [Rasa](product)?
+    - what is the enhancement of [Rasa](product)?
+    - what is the upgrade of [Rasa](product)?
+    - what is the innovation of [Rasa](product)?
+    - what is the breakthrough of [Rasa](product)?
+    - what is the discovery of [Rasa](product)?
+    - what is the invention of [Rasa](product)?
+    - what is the creation of [Rasa](product)?
+    - what is the origin of [Rasa](product)?
+    - what is the source of [Rasa](product)?
+    - what is the foundation of [Rasa](product)?
+    - what is the basis of [Rasa](product)?
+    - what is the principle of [Rasa](product)?
+    - what is the concept of [Rasa](product)?
+    - what is the idea of [Rasa](product)?
+    - what is the thought behind [Rasa](product)?
+    - what is the vision for [Rasa](product)?
+    - what is the mission of [Rasa](product)?
+    - what is the goal of [Rasa](product)?
+    - what is the objective of [Rasa](product)?
+    - what is the aim of [Rasa](product)?
+    - what is the purpose of [Rasa](product)?
+    - what is the target of [Rasa](product)?
+    - what is the intention of [Rasa](product)?
+    - what is the plan for [Rasa](product)?
+    - what is the strategy for [Rasa](product)?
+    - what is the approach for [Rasa](product)?
+    - what is the method for [Rasa](product)?
+    - what is the technique for [Rasa](product)?
+    - what is the procedure for [Rasa](product)?
+    - what is the process for [Rasa](product)?
+    - what is the operation for [Rasa](product)?
+    - what is the function of [Rasa](product)?
+    - what is the role of [Rasa](product)?
+    - what is the use of [Rasa](product)?
+    - what is the application of [Rasa](product)?
+    - how do I use [Rasa](product)?
 
 # The 'inform_name', 'introduce_me', and 'lookup' are GONE.
 # The new form logic makes them obsolete.

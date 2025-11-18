@@ -53,6 +53,21 @@ responses:
   utter_ask_name_again:
     - text: "I'm sorry, I didn't catch that. What's your name?"
 
+  utter_default:
+    - text: "I'm not sure I understand. Let me find out for you."
+
+  utter_ask_clarification:
+    - text: "Could you please clarify your question?"
+
+  utter_ask_if_helpful:
+    - text: "Did that answer your question?"
+
+  utter_ask_alternative:
+    - text: "Would you like to ask something else?"
+
+  utter_fallback:
+    - text: "I'm sorry, I didn't understand that. Could you please rephrase?"
+
 actions:
   # From your actions.py file
   - validate_name_form

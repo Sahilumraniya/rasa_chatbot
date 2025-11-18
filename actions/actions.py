@@ -64,7 +64,7 @@ class ActionVectorReasoner(Action):
         try:
             RETRIEVER.refresh(knowledge_base) 
             results = RETRIEVER.search(query, top_k=1)
-            print("Vector search results:", results)
+            # print("Vector search results:", results)
             
             if not results:
                 dispatcher.utter_message("I don’t have information about that yet.")
