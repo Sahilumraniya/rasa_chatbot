@@ -57,12 +57,14 @@ class ActionVectorReasoner(Action):
 
         query = tracker.latest_message.get("text", "").strip()
         metadata = tracker.latest_message.get("metadata", {})
-        knowledge_base = metadata.get("knowledge_base") or []
-
+        # knowledge_base = metadata.get("knowledge_base") or []
+        user_id = metadata.get("user_id", "default_user")
+        agent_id = metadata.get("agent_id", "default_agent")
         # print("knowledge_base:", knowledge_base)
+        # print(f"Vector reasoner invoked for user_id: {user_id}, agent_id: {agent_id}, query: {query}")
         
         try:
-            RETRIEVER.refresh(knowledge_base) 
+            RETRIEVER.refresh(user_id, agent_id) 
             results = RETRIEVER.search(query, top_k=1)
             # print("Vector search results:", results)
             

@@ -4,16 +4,19 @@ from pydantic import BaseModel
 from typing import List, Any
 import httpx
 
-class KBItem(BaseModel):
-    question: str
-    answer: str
-    embedding: List[float]
+# class KBItem(BaseModel):
+#     question: str
+#     answer: str
+#     embedding: List[float]
+#     question_embedding: List[float]
 
 class InputPayload(BaseModel):
     message_id: str
     message: str
     user_group: str
-    knowledge_base: List[KBItem]
+    # knowledge_base: List[KBItem]
+    user_id: str
+    agent_id: str | None = None
 
 class OutputPayload(BaseModel):
     user_group: str
@@ -42,7 +45,8 @@ async def handle_chat(payload: InputPayload) -> OutputPayload:
         "sender": payload.user_group,
         "message": payload.message,
         "metadata": {
-            "knowledge_base": [item.dict() for item in payload.knowledge_base]
+            "user_id": payload.user_id,
+            "agent_id": payload.agent_id
         }
     }
 

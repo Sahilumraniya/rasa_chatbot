@@ -438,5 +438,14 @@ nlu:
     - what is the application of [Rasa](product)?
     - how do I use [Rasa](product)?
 
+- intent: vulgarity
+  examples: |
+    - damn
+    - hell
+    - crap
+    - damn it
+    - what the hell
+    - holy crap
+
 # The 'inform_name', 'introduce_me', and 'lookup' are GONE.
 # The new form logic makes them obsolete.

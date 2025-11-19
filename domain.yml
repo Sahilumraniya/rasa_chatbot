@@ -4,6 +4,7 @@ intents:
   - greet
   - goodbye
   - nlu_fallback
+  - vulgarity
   # The 'inform' intent is GONE. This is correct.
 
 entities:
@@ -67,6 +68,9 @@ responses:
 
   utter_fallback:
     - text: "I'm sorry, I didn't understand that. Could you please rephrase?"
+
+  utter_vulgarity:
+    - text: "Let's keep our conversation respectful. How can I assist you?"
 
 actions:
   # From your actions.py file

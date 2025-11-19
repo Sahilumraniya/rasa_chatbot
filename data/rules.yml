@@ -53,3 +53,10 @@ rules:
   steps:
     - intent: nlu_fallback
     - action: action_vector_reasoner
+
+- rule: Handle vulgarity
+  condition:
+    - active_loop: null
+  steps:
+    - intent: vulgarity
+    - action: utter_vulgarity
