@@ -3,6 +3,9 @@ from sentence_transformers import SentenceTransformer
 from sklearn.neighbors import NearestNeighbors
 from pymongo import MongoClient
 from bson import ObjectId
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
 try:
     import faiss
@@ -12,8 +15,8 @@ except ImportError:
 
 class VectorRetriever:
     def __init__(self,
-                 mongo_uri="mongodb+srv://soumyasmartters:EAq2rKNP01KyTCAt@automation.c59mat7.mongodb.net/replyme_dev",
-                 db_name="replyme_dev",
+                 mongo_uri=os.getenv("MONGO_URI", "mongodb://localhost:27017"),
+                 db_name=os.getenv("DB_NAME", "replyme_dev"),
                  collection_name="embeddedknowledgebases",
                  model_name="all-MiniLM-L6-v2",
                  min_confidence=0.75):
