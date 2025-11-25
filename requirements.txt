@@ -2,20 +2,20 @@
 rasa==3.6.21
 rasa-sdk==3.6.2
 
-transformers==4.35.0
-sentence-transformers==2.5.1
-huggingface-hub==0.23.2
-torch==2.1.0
+# --- Modern NLP Stack (Fixes conflict) ---
+# We upgrade these to allow newer huggingface-hub and accelerate to work together
+transformers>=4.39.0
+sentence-transformers>=2.7.0
+huggingface-hub>=0.23.0
+accelerate>=0.28.0
+torch>=2.2.0
+
+# --- Standard Dependencies ---
 scikit-learn==1.1.3
-
-# faiss-cpu==1.7.4
-
-# --- Runtime & utilities ---
 uvicorn==0.20.0
 numpy==1.23.5
 typing-extensions==4.9.0
 sqlalchemy<2.0
-accelerate>=0.26.0
 pandas>=1.5.0,<2.2.0
 PyYAML==6.0.2
 Flask==2.3.2
@@ -23,3 +23,4 @@ requests==2.31.0
 fastapi==0.111.0
 tqdm
 python-dotenv
+better_profanity

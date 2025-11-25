@@ -1,22 +1,16 @@
 import uvicorn
-from fastapi import FastAPI, Body
+from fastapi import FastAPI
 from pydantic import BaseModel
-from typing import List, Any
+from typing import Optional
 import httpx
-
-# class KBItem(BaseModel):
-#     question: str
-#     answer: str
-#     embedding: List[float]
-#     question_embedding: List[float]
+from better_profanity import profanity 
 
 class InputPayload(BaseModel):
     message_id: str
     message: str
     user_group: str
-    # knowledge_base: List[KBItem]
     user_id: str
-    agent_id: str | None = None
+    agent_id: Optional[str] = None
 
 class OutputPayload(BaseModel):
     user_group: str
@@ -25,43 +19,58 @@ class OutputPayload(BaseModel):
 
 app = FastAPI()
 
-# This is the URL for your Rasa server (which you run with 'rasa run')
+# URL for your Rasa server (run with: rasa run)
 RASA_WEBHOOK_URL = "http://localhost:5005/webhooks/rest/webhook"
+
+# Initialize profanity filter once
+profanity.load_censor_words()
 
 @app.post("/chat")
 async def handle_chat(payload: InputPayload) -> OutputPayload:
     """
-    This is your new API endpoint.
-    1. It receives your custom payload.
-    2. It transforms it into a Rasa payload (with metadata).
-    3. It calls the Rasa server.
-    4. It transforms the Rasa response back into your custom format.
+    1. Receive your custom payload.
+    2. Check for profanity in payload.message.
+       - If vulgar -> return "please rephrase" WITHOUT calling Rasa.
+    3. If clean -> call Rasa with the same 'message' field.
+    4. Return Rasa's first text response in your custom shape.
     """
-    
-    # --- 1. Transform for Rasa ---
-    # We use 'user_group' as the session ID (sender)
-    # We pass the 'knowledge_base' into the metadata
+
+    user_text = (payload.message or "").strip()
+
+    # --- 1) Profanity detection at gateway ---
+    if user_text and profanity.contains_profanity(user_text):
+        return OutputPayload(
+            user_group=payload.user_group,
+            text="I can't respond to messages with offensive language. Please rephrase without profanity.",
+            message_id=payload.message_id,
+        )
+
+    # --- 2) Build payload for Rasa (KEEPING 'message' like your original) ---
     rasa_payload = {
         "sender": payload.user_group,
-        "message": payload.message,
+        "message": user_text,
         "metadata": {
             "user_id": payload.user_id,
-            "agent_id": payload.agent_id
-        }
+            "agent_id": payload.agent_id,
+        },
     }
 
-    # --- 2. Call Rasa Server ---
+    # --- 3) Call Rasa Server ---
     rasa_response_text = "Sorry, I couldn't connect to the bot."
     try:
         async with httpx.AsyncClient() as client:
-            response = await client.post(RASA_WEBHOOK_URL, json=rasa_payload, timeout=10.0)
-            response.raise_for_status() # Raise an error if the request failed
-            
-            # Extract the first text response from Rasa
+            response = await client.post(
+                RASA_WEBHOOK_URL,
+                json=rasa_payload,
+                timeout=10.0,
+            )
+            response.raise_for_status()
+
+            # Extract first text response from Rasa
             rasa_data = response.json()
             if rasa_data and isinstance(rasa_data, list):
-                rasa_response_text = rasa_data[0].get("text")
-            
+                rasa_response_text = rasa_data[0].get("text") or rasa_response_text
+
     except httpx.HTTPStatusError as e:
         rasa_response_text = f"Error: Could not reach Rasa server. {e}"
         print(f"Rasa server returned an error: {e}")
@@ -72,14 +81,12 @@ async def handle_chat(payload: InputPayload) -> OutputPayload:
         rasa_response_text = "An unexpected error occurred."
         print(f"An unexpected error: {e}")
 
-    # --- 3. Transform for Output ---
-    output = OutputPayload(
+    # --- 4) Transform for Output ---
+    return OutputPayload(
         user_group=payload.user_group,
         text=rasa_response_text,
-        message_id=payload.message_id
+        message_id=payload.message_id,
     )
-    
-    return output
 
 if __name__ == "__main__":
     print("Starting API Gateway on http://localhost:8000")
