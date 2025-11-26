@@ -142,6 +142,71 @@ class VectorRetriever:
             self.index.fit(self.embeddings)
             print("⚡ Built Sklearn index.")
 
+    def refreshKnowledgeBase(self, payload=None):
+            """
+            1. Reads TEXT from payload (Question and Answer).
+            2. IGNORES the mismatched embeddings in the payload.
+            3. Generates NEW, perfect embeddings using the local model.
+            """
+            self.answers = []
+            self.index_to_answer_id = []
+            self.embeddings = None
+            self.index = None
+
+            if not payload: return
+
+            # --- 1. Extract Text Only ---
+            text_to_embed = []
+            
+            print("🔄 Re-calculating embeddings from text to GUARANTEE match...")
+
+            for i, item in enumerate(payload):
+                q = item.get("question")
+                a = item.get("answer")
+                if not a: continue
+
+                # Store the answer text
+                self.answers.append(a)
+
+                # Strategy: We will embed the Question AND the Answer separately
+                # This maintains your "Hybrid Search" logic
+                
+                # Add Question text to be embedded
+                if q:
+                    text_to_embed.append(q)
+                    self.index_to_answer_id.append(i)
+
+                # Add Answer text to be embedded
+                if a:
+                    text_to_embed.append(a)
+                    self.index_to_answer_id.append(i)
+
+            if not text_to_embed:
+                print("❌ No text found to embed.")
+                return
+
+            # --- 2. Generate Embeddings Locally (The Fix) ---
+            # This creates vectors that are 100% compatible with the query
+            # This converts the list of strings into a numpy array of vectors
+            self.embeddings = self.model.encode(text_to_embed, convert_to_numpy=True)
+            
+            # --- 3. Normalize ---
+            norms = np.linalg.norm(self.embeddings, axis=1, keepdims=True)
+            self.embeddings = self.embeddings / (norms + 1e-12)
+
+            # --- 4. Build Index ---
+            if FAISS_AVAILABLE:
+                dim = self.embeddings.shape[1]
+                index = faiss.IndexFlatIP(dim)
+                index.add(self.embeddings.astype(np.float32))
+                self.index = index
+                self.use_faiss = True
+                print(f"⚡ Built FAISS index with {len(self.embeddings)} vectors.")
+            else:
+                self.index = NearestNeighbors(n_neighbors=min(10, len(self.embeddings)), metric="cosine")
+                self.index.fit(self.embeddings)
+                print("⚡ Built Sklearn index.")
+
     def _semantic_expand(self, query):
         q = query.lower().strip()
         expansions = [q]

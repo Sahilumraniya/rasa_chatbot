@@ -1,16 +1,22 @@
 import uvicorn
 from fastapi import FastAPI
 from pydantic import BaseModel
-from typing import Optional
+from typing import Optional, List, Any
 import httpx
 from better_profanity import profanity 
+
+class KBItem(BaseModel):
+    question: str
+    answer: str
+    embedding: List[float]
 
 class InputPayload(BaseModel):
     message_id: str
     message: str
     user_group: str
-    user_id: str
+    user_id: Optional[str] = None
     agent_id: Optional[str] = None
+    knowledge_base: Optional[List[KBItem]] = None
 
 class OutputPayload(BaseModel):
     user_group: str
@@ -52,6 +58,7 @@ async def handle_chat(payload: InputPayload) -> OutputPayload:
         "metadata": {
             "user_id": payload.user_id,
             "agent_id": payload.agent_id,
+            "knowledge_base": [item.dict() for item in payload.knowledge_base] if payload.knowledge_base else [],
         },
     }
 
