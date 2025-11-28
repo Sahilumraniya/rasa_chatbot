@@ -81,66 +81,55 @@ class VectorRetriever:
             return
 
         # --- 2. Extract Existing Vectors ---
-        vectors_list = []
-        
-        # print(f"📊 Found {len(documents)} documents. Loading stored embeddings...")
-
-        for i, doc in enumerate(documents):
-            # Get text
-            a_text = doc.get("answer")
-            if not a_text: continue
-
-            # Get stored vectors (List[float])
-            # "question_embedding" usually maps strictly to the question
-            # "embedding" usually maps to the combined Q+A or context
-            q_vec = doc.get("question_embedding") 
-            qa_vec = doc.get("embedding")
-
-            # If neither exists, skip this doc (or fallback to text encoding if you wanted)
-            if not q_vec and not qa_vec:
-                continue
-
-            # Store the answer text reference
-            self.answers.append(a_text)
-
-            # Strategy: Add whichever vectors exist to the index
+        text_to_embed = []
             
-            # 1. Add Question Vector (Excellent for direct question matching)
-            if q_vec and isinstance(q_vec, list):
-                vectors_list.append(q_vec)
+        print("🔄 Re-calculating embeddings from text to GUARANTEE match...")
+
+        for i, item in enumerate(documents):
+            q = item.get("question")
+            a = item.get("answer")
+            if not a: continue
+
+            # Store the answer text
+            self.answers.append(a)
+            # Strategy: We will embed the Question AND the Answer separately
+            # This maintains your "Hybrid Search" logic
+                
+            # Add Question text to be embedded
+            if q:
+                text_to_embed.append(q)
                 self.index_to_answer_id.append(i)
 
-            # 2. Add Context/Combined Vector (Good for broader semantic matching)
-            if qa_vec and isinstance(qa_vec, list):
-                vectors_list.append(qa_vec)
+            # Add Answer text to be embedded
+            if a:
+                text_to_embed.append(a)
                 self.index_to_answer_id.append(i)
 
-        if not vectors_list:
-            print("❌ No vector data found in documents.")
-            return
+            if not text_to_embed:
+                print("❌ No text found to embed.")
+                return
 
-        # --- 3. Convert to Numpy ---
-        # We convert the list of lists directly to a numpy array
-        self.embeddings = np.array(vectors_list, dtype='float32')
-        
-        # --- 4. Normalize ---
-        # Even if stored embeddings are normalized, it is safer to re-normalize 
-        # locally to ensure Dot Product (Cosine Similarity) works perfectly.
-        norms = np.linalg.norm(self.embeddings, axis=1, keepdims=True)
-        self.embeddings = self.embeddings / (norms + 1e-12)
+            # --- 2. Generate Embeddings Locally (The Fix) ---
+            # This creates vectors that are 100% compatible with the query
+            # This converts the list of strings into a numpy array of vectors
+            self.embeddings = self.model.encode(text_to_embed, convert_to_numpy=True)
+            
+            # --- 3. Normalize ---
+            norms = np.linalg.norm(self.embeddings, axis=1, keepdims=True)
+            self.embeddings = self.embeddings / (norms + 1e-12)
 
-        # --- 5. Build Index ---
-        if FAISS_AVAILABLE:
-            dim = self.embeddings.shape[1]
-            index = faiss.IndexFlatIP(dim)
-            index.add(self.embeddings)
-            self.index = index
-            self.use_faiss = True
-            print(f"⚡ Built FAISS index with {len(self.embeddings)} vectors.")
-        else:
-            self.index = NearestNeighbors(n_neighbors=min(10, len(self.embeddings)), metric="cosine")
-            self.index.fit(self.embeddings)
-            print("⚡ Built Sklearn index.")
+            # --- 4. Build Index ---
+            if FAISS_AVAILABLE:
+                dim = self.embeddings.shape[1]
+                index = faiss.IndexFlatIP(dim)
+                index.add(self.embeddings.astype(np.float32))
+                self.index = index
+                self.use_faiss = True
+                print(f"⚡ Built FAISS index with {len(self.embeddings)} vectors.")
+            else:
+                self.index = NearestNeighbors(n_neighbors=min(10, len(self.embeddings)), metric="cosine")
+                self.index.fit(self.embeddings)
+                print("⚡ Built Sklearn index.")
 
     def refreshKnowledgeBase(self, payload=None):
             """
